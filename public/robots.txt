@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap location (to be added in the future)
+# Sitemap: https://parth7.me/sitemap.xml

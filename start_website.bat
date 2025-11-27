@@ -1,0 +1,6 @@
+@echo off
+echo Starting Portfolio Website...
+cd /d "%~dp0"
+echo Opening browser and starting server...
+call npm run dev -- --open
+pause

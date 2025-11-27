@@ -1,245 +1,172 @@
-<div align="center">
+# 🚀 Parth Salunkhe - Personal Portfolio
 
-# 👋 Hi, I'm Parth Salunkhe
+![Portfolio Website](https://img.shields.io/badge/Status-Live-success)
+![Built with React](https://img.shields.io/badge/Built%20with-React-61DAFB?logo=react)
+![Vite](https://img.shields.io/badge/Powered%20by-Vite-646CFF?logo=vite)
+![License](https://img.shields.io/badge/License-MIT-blue)
 
-### 🎓 Computer Science Engineering Student | 💻 Cloud, Cybersecurity & AI Enthusiast
+A modern, responsive personal portfolio website showcasing my expertise in **Cybersecurity**, **AI/Machine Learning**, and **Full-Stack Development**.
 
-📍 Delhi Technological University | 2023 – 2027
+🌐 **Live Website:** [https://parth7.me](https://parth7.me)
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/parth-salunkhe-029a491a4)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:Parth.ajit7052@gmail.com)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ParthSalunkhe7052)
+## ✨ Features
 
-![Profile Views](https://komarev.com/ghpvc/?username=ParthSalunkhe7052&color=blueviolet&style=flat-square)
+- **Modern Design**: Clean, professional interface with gradient accents and smooth animations
+- **Fully Responsive**: Optimized for all devices - desktop, tablet, and mobile
+- **SEO Optimized**: Comprehensive meta tags for search engines and social media sharing
+- **Fast Performance**: Built with Vite for lightning-fast load times
+- **Smooth Animations**: Powered by Framer Motion for engaging user experience
+- **Custom 404 Page**: User-friendly error handling
+- **Accessibility**: Semantic HTML and ARIA labels for better accessibility
 
-</div>
+## 🛠️ Tech Stack
 
----
+### Frontend
+- **React 18** - Modern UI library
+- **Vite** - Next-generation frontend tooling
+- **Framer Motion** - Animation library
+- **Lucide React** - Beautiful icon library
+- **CSS3** - Custom styling with gradients and animations
 
-## 🚀 About Me
+### Deployment
+- **GitHub Pages** - Free, reliable hosting
+- **Custom Domain** - parth7.me via DNS configuration
+- **gh-pages** - Automated deployment tool
 
-I'm a passionate **Computer Science Engineering student** with hands-on experience in **cloud technologies, cybersecurity, AI/ML, and full-stack development**. I love building projects that solve real-world problems and exploring cutting-edge technologies.
+## 📁 Project Structure
 
-- 🔭 Currently working on: **AI-powered security testing & threat intelligence platforms**
-- 🌱 Learning: **Kubernetes, Advanced Cybersecurity, Deep Learning with PyTorch**
-- 🎯 2025 Goals: **Contribute to open-source, master cloud security & computer vision**
-- ⚡ Fun fact: **Won 1st place in Emirates Aviation Rocket-Building Competition 🚀**
+```
+MyWebsite/
+├── public/
+│   ├── favicon.svg          # Custom favicon
+│   ├── favicon.ico          # Legacy favicon
+│   ├── apple-touch-icon.png # iOS home screen icon
+│   ├── robots.txt           # SEO crawler instructions
+│   └── 404.html             # Custom error page
+├── src/
+│   ├── components/
+│   │   ├── About.jsx        # About Me section
+│   │   ├── Footer.jsx       # Footer component
+│   │   ├── Hero.jsx         # Hero/Landing section
+│   │   ├── Navbar.jsx       # Navigation bar
+│   │   └── Projects.jsx     # Projects showcase
+│   ├── assets/              # Images and static files
+│   ├── App.jsx              # Main app component
+│   ├── main.jsx             # Entry point
+│   └── index.css            # Global styles
+├── index.html               # HTML template
+├── vite.config.js           # Vite configuration
+├── package.json             # Dependencies
+└── CNAME                    # Custom domain configuration
+```
 
----
+## 🚀 Getting Started
 
-## 🌟 Featured Projects
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
 
-### 🔥 [ASURA - AI SecureLab](https://github.com/ParthSalunkhe7052/Asura-Security-Scan)
+### Installation
 
-**Privacy-first security testing tool with AI-powered vulnerability analysis**
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/ParthSalunkhe7052/ParthSalunkhe7052.github.io.git
+   cd ParthSalunkhe7052.github.io
+   ```
 
-<div align="center">
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
+3. **Run development server**
+   ```bash
+   npm run dev
+   ```
+   The site will be available at `http://localhost:5173`
 
-</div>
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
 
-**Key Features:**
-- 🔒 **Multi-Scanner Integration** - Bandit, Safety, and Semgrep for comprehensive security analysis
-- 🤖 **AI-Powered Explanations** - OpenRouter API with 4-model fallback for vulnerability insights
-- 📊 **Code Quality Metrics** - Radon complexity analysis and pytest coverage tracking
-- 💯 **Health Scoring System** - A-F grades based on security and coverage metrics
-- 📈 **Scan Comparison** - Compare security scans side-by-side with trend analysis
-- 🎨 **Modern Dashboard** - Beautiful React UI with real-time scan progress
-- 🔐 **100% Local & Private** - All scans run locally, your code never leaves your machine
-- 📤 **Export Reports** - Generate JSON and HTML reports with embedded analytics
+5. **Preview production build**
+   ```bash
+   npm run preview
+   ```
 
-**Tech Stack:** FastAPI, React 18, Vite, TailwindCSS, SQLAlchemy, Bandit, Semgrep, Safety, OpenRouter AI
+## 📦 Deployment
 
-[🔗 View Project →](https://github.com/ParthSalunkhe7052/Asura-Security-Scan)
+### GitHub Pages Deployment
 
----
+This website is configured for automatic deployment to GitHub Pages:
 
-### 🎮 [Clash Emote Detector](https://github.com/ParthSalunkhe7052/Clash-Emote-Detector)
+1. **Build and deploy**
+   ```bash
+   npm run deploy
+   ```
 
-**Real-time gesture recognition system for Clash Royale emotes using AI and computer vision**
+2. The `gh-pages` package will:
+   - Build the production bundle
+   - Create/update the `gh-pages` branch
+   - Push the built files to GitHub
 
-<div align="center">
+3. **GitHub Pages Settings**
+   - Go to repository Settings → Pages
+   - Source: Deploy from branch `gh-pages`
+   - Custom domain: `parth7.me`
+   - Enforce HTTPS: ✓
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
-![MediaPipe](https://img.shields.io/badge/MediaPipe-4285F4?style=for-the-badge&logo=google&logoColor=white)
-![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+### DNS Configuration (for custom domain)
 
-</div>
+Add these DNS records at your domain registrar:
 
-**Key Features:**
-- 🎯 **95%+ Accuracy** with advanced neural networks (Model 4 Ultimate)
-- 🎭 **7 Built-in Emotes** + unlimited custom emote support
-- 📸 **Real-time Detection** at 15-30 FPS with pose estimation
-- 🧠 **Multiple AI Models** (RandomForest, Neural Networks, Advanced 128-D embeddings)
-- 🎨 **Modern Web Interface** with glassmorphism design
-- 🔊 **Dynamic Audio System** with confidence-based volume scaling
-- ⚙️ **Full Configuration** - camera selection, model switching, detection tuning
+```
+Type: A     Name: @       Value: 185.199.108.153
+Type: A     Name: @       Value: 185.199.109.153
+Type: A     Name: @       Value: 185.199.110.153
+Type: A     Name: @       Value: 185.199.111.153
+Type: CNAME Name: www     Value: ParthSalunkhe7052.github.io
+```
 
-**Tech Stack:** PyTorch, MediaPipe, Flask, Socket.IO, OpenCV, scikit-learn, TailwindCSS
+## 📊 SEO Features
 
-[🔗 View Project →](https://github.com/ParthSalunkhe7052/Clash-Emote-Detector)
+- Comprehensive meta tags (title, description, keywords)
+- Open Graph tags for social media previews
+- Twitter Card support
+- Canonical URLs
+- robots.txt for search engine crawlers
+- Semantic HTML structure
+- Mobile-friendly responsive design
 
----
+## 🎨 Design Features
 
-### 🌐 [DDoS Globe Visualizer](https://github.com/ParthSalunkhe7052/ddos-globe-visualizer)
+- **Color Scheme**: Dark navy background with cyan-to-purple gradients
+- **Typography**: Inter and Space Grotesk from Google Fonts
+- **Icons**: Lucide React icon library
+- **Animations**: Smooth transitions and hover effects
+- **Layout**: Clean, modern card-based design
 
-**Real-time 3D threat intelligence visualization platform**
+## 📧 Contact
 
-<div align="center">
+**Parth Salunkhe**
+- 🌐 Website: [parth7.me](https://parth7.me)
+- 💼 LinkedIn: [linkedin.com/in/parth-salunkhe](https://www.linkedin.com/in/parth-salunkhe)
+- 📧 Email: [your-email@example.com](mailto:your-email@example.com)
+- 🐱 GitHub: [github.com/ParthSalunkhe7052](https://github.com/ParthSalunkhe7052)
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js&logoColor=white)
-![WebSocket](https://img.shields.io/badge/WebSocket-010101?style=for-the-badge&logo=socket.io&logoColor=white)
+## 📄 License
 
-</div>
+This project is licensed under the MIT License - feel free to use this as a template for your own portfolio!
 
-**Key Features:**
-- 🌍 **Interactive 3D Globe** powered by Three.js with real-time attack visualization
-- 🔴 **Live Attack Streaming** via WebSocket for instant threat detection
-- 🔍 **Multi-Source Threat Intelligence** (AbuseIPDB, AlienVault OTX, Abuse.ch)
-- 📊 **Advanced Analytics** with geolocation mapping and IP reputation scoring
-- 🎨 **Modern UI/UX** built with React + Vite
+## 🙏 Acknowledgments
 
-**Tech Stack:** FastAPI, React, Three.js, WebSocket, Geolocation APIs, MaxMind GeoIP2
-
-[🔗 View Project →](https://github.com/ParthSalunkhe7052/ddos-globe-visualizer)
-
----
-
-## 💼 Professional Experience
-
-### 🏢 **Alfazance** | *Intern*
-**May 2025 – June 2025 | Dubai, UAE**
-- Worked with **Microsoft Dynamics 365**, **Power Automate**, and **Elasticsearch**
-- Managed **Proxmox** virtualization and **Linux** systems
-- Gained enterprise-level DevOps and automation experience
-
-### 🏢 **TLS IT Solutions** | *Intern*
-**June 2022 – July 2022 | Dubai, UAE**
-- Enhanced product offerings through customer needs analysis
-- Collaborated with cross-functional teams on technical solutions
-
----
-
-## 🛠️ Technical Skills
-
-<div align="center">
-
-### Programming Languages
-![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-
-### Web Development
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js&logoColor=white)
-
-### AI/ML & Computer Vision
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
-![MediaPipe](https://img.shields.io/badge/MediaPipe-4285F4?style=for-the-badge&logo=google&logoColor=white)
-![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
-
-### Cloud & DevOps
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-![Proxmox](https://img.shields.io/badge/Proxmox-E57000?style=for-the-badge&logo=proxmox&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-
-### Databases & Tools
-![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
-![Elasticsearch](https://img.shields.io/badge/Elasticsearch-005571?style=for-the-badge&logo=elasticsearch&logoColor=white)
-![Microsoft Dynamics](https://img.shields.io/badge/Dynamics_365-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)
-![Power Automate](https://img.shields.io/badge/Power_Automate-0066FF?style=for-the-badge&logo=power-automate&logoColor=white)
-![Socket.IO](https://img.shields.io/badge/Socket.IO-010101?style=for-the-badge&logo=socket.io&logoColor=white)
-
-### Core Competencies
-- 💡 **Data Structures & Algorithms**
-- 🏗️ **System Design & OOP**
-- 🔐 **Cybersecurity & Network Security**
-- 🛡️ **Security Testing & Vulnerability Analysis**
-- 🤖 **Machine Learning & Deep Learning**
-- 👁️ **Computer Vision & Pose Estimation**
-- 🌐 **Real-time Web Applications**
-- 🔍 **Static Code Analysis & Security Scanning**
-
-</div>
+- Built with [React](https://react.dev/)
+- Powered by [Vite](https://vitejs.dev/)
+- Deployed on [GitHub Pages](https://pages.github.com/)
+- Icons by [Lucide](https://lucide.dev/)
+- Fonts from [Google Fonts](https://fonts.google.com/)
 
 ---
 
-## 🏆 Achievements & Recognition
-
-🥇 **1st Place** – Emirates Aviation Rocket-Building Competition  
-🏅 **Top 5** – DTU Hackathon 2024  
-🤖 **UGV Tech Team** – Top 5 at UGVC (ICMTC, Cairo) + Best Presentation Award  
-🎤 **Volunteer** – College Tech Fest Organization  
-
----
-
-## 📊 GitHub Statistics
-
-<div align="center">
-
-![Parth's GitHub Stats](https://github-readme-stats.vercel.app/api?username=ParthSalunkhe7052&show_icons=true&theme=tokyonight&hide_border=true&count_private=true)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=ParthSalunkhe7052&layout=compact&theme=tokyonight&hide_border=true)
-
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=ParthSalunkhe7052&theme=tokyonight&hide_border=true)
-
-</div>
-
----
-
-## 📚 Education
-
-🎓 **Delhi Technological University**  
-*B.Tech in Computer Engineering* | 2023 – 2027
-
-🎓 **Our Own High School, Dubai**  
-*High School Diploma* | 2023
-
----
-
-## 🌐 Languages
-
-- 🇬🇧 **English** (Fluent)
-- 🇮🇳 **Hindi** (Fluent)
-- 🇮🇳 **Marathi** (Fluent)
-
----
-
-## 📫 Let's Connect!
-
-<div align="center">
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/parth-salunkhe-029a491a4)
-[![Email](https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail)](mailto:Parth.ajit7052@gmail.com)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github)](https://github.com/ParthSalunkhe7052)
-
-
-
-</div>
-
----
-
-<div align="center">
-
-### 💭 *"Building the future, one commit at a time"*
-
-![Wave](https://raw.githubusercontent.com/mayhemantt/mayhemantt/Update/svg/Bottom.svg)
-
-</div>
+**⭐ If you like this project, please consider giving it a star on GitHub!**
