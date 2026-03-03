@@ -1,75 +1,57 @@
-:root {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f9fafb;
-  --text-primary: #111827;
-  --text-secondary: #6b7280;
-  --accent-primary: #2563eb;
-  /* Professional Blue */
-  --border-color: #e5e7eb;
-  --font-body: 'Inter', sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-text font-sans antialiased overflow-x-hidden selection:bg-primary/30;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
+  
+  p {
+    @apply leading-relaxed;
+  }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@layer components {
+  .section-container {
+    @apply max-w-6xl mx-auto px-6 py-24 md:py-32 w-full relative z-10;
+  }
+  
+  .glass-panel {
+    @apply bg-surface/50 backdrop-blur-md border border-white/5 rounded-2xl;
+  }
+  
+  .primary-button {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-xl font-medium text-white 
+           bg-gradient-to-r from-primary to-secondary transition-all duration-300 
+           hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:-translate-y-1;
+  }
+
+  .secondary-button {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-xl font-medium text-white 
+           bg-white/5 border border-white/10 transition-all duration-300
+           hover:bg-white/10 hover:-translate-y-1;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400;
+  }
 }
 
-body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: var(--font-body);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
+/* Custom Scrollbar for Dark Mode */
+::-webkit-scrollbar {
+  width: 8px;
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  color: var(--text-primary);
+::-webkit-scrollbar-track {
+  @apply bg-background;
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.2s ease;
+::-webkit-scrollbar-thumb {
+  @apply bg-surfaceHover rounded-full;
 }
-
-a:hover {
-  color: var(--accent-primary);
-}
-
-.app-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-section {
-  padding: 5rem 1.5rem;
-  max-width: 1000px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.section-title {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  position: relative;
-  display: inline-block;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 40px;
-  height: 3px;
-  background: var(--accent-primary);
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-white/20;
 }
