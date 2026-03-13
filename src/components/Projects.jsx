@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ArrowUpRight } from 'lucide-react';
 import asuraImg from '../assets/asura.png';
 import ddosImg from '../assets/ddos.png';
 import clashImg from '../assets/clash.png';
@@ -10,119 +10,120 @@ const Projects = () => {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
-            transition: { staggerChildren: 0.15 }
+            transition: { staggerChildren: 0.1 }
         }
     };
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 40 },
+        hidden: { opacity: 0, y: 20 },
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.6, ease: "easeOut" }
+            transition: { duration: 0.5, ease: 'easeOut' }
         }
     };
 
     const projects = [
         {
             id: 'asura',
-            title: 'ASURA - AI SecureLab',
-            description: 'Privacy-first security testing tool with AI-powered vulnerability analysis. Integrates multiple scanners like Bandit and Semgrep with local LLMs for explanation.',
+            title: 'ASURA — AI SecureLab',
+            description: 'Privacy-first security testing tool with AI-powered vulnerability analysis. Integrates Bandit and Semgrep scanners with local LLMs for automated code review.',
             tags: ['FastAPI', 'React', 'Python', 'AI'],
-            link: 'https://github.com/ParthSalunkhe7052/Asura-Security-Scan',
+            github: 'https://github.com/ParthSalunkhe7052/Asura-Security-Scan',
             image: asuraImg,
-            color: "from-purple-500/20 to-pink-500/20"
         },
         {
             id: 'ddos',
             title: 'DDoS Globe Visualizer',
-            description: 'Real-time 3D threat intelligence visualization platform. Displays live attacks on an interactive globe using WebSocket and Three.js.',
+            description: 'Real-time 3D threat intelligence visualization platform. Displays live DDoS attacks on an interactive globe using WebSocket streams and Three.js.',
             tags: ['Three.js', 'React', 'WebSocket', 'FastAPI'],
-            link: 'https://github.com/ParthSalunkhe7052/ddos-globe-visualizer',
+            github: 'https://github.com/ParthSalunkhe7052/ddos-globe-visualizer',
             image: ddosImg,
-            color: "from-blue-500/20 to-cyan-500/20"
         },
         {
             id: 'clash',
             title: 'Clash Emote Detector',
-            description: 'Real-time gesture recognition system using computer vision. Detects hand gestures to trigger Clash Royale emotes in real-time.',
+            description: 'Real-time gesture recognition system using computer vision. Detects hand gestures through MediaPipe to trigger Clash Royale emotes live.',
             tags: ['PyTorch', 'OpenCV', 'MediaPipe', 'Flask'],
-            link: 'https://github.com/ParthSalunkhe7052/Clash-Emote-Detector',
+            github: 'https://github.com/ParthSalunkhe7052/Clash-Emote-Detector',
             image: clashImg,
-            color: "from-orange-500/20 to-red-500/20"
         },
         {
             id: 'ugv',
-            title: 'UGV Tech Team - Autonomous Ground Vehicle',
-            description: 'Built a 6-wheel rover using Jetson Nano, Lidar, and sensors. Integrated ROS-based navigation, SLAM mapping, and obstacle detection. Awarded Best Presentation at ICMTC, Cairo.',
+            title: 'Autonomous Ground Vehicle',
+            description: 'Built a 6-wheel rover with Jetson Nano, Lidar, and ROS-based SLAM navigation. Awarded Best Presentation at ICMTC, Cairo.',
             tags: ['ROS', 'Python', 'Jetson Nano', 'Lidar', 'SLAM'],
-            link: '#',
+            github: '#',
             image: null,
-            color: "from-emerald-500/20 to-teal-500/20"
         }
     ];
 
     return (
-        <section id="projects" className="section-container relative z-10 pt-10">
+        <section id="projects" className="section-container">
             <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: '-80px' }}
                 variants={containerVariants}
             >
-                <div className="flex items-center gap-4 mb-16">
-                    <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold">
-                        Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Work</span>
-                    </motion.h2>
-                    <motion.div variants={itemVariants} className="h-px bg-white/10 flex-grow mt-2 hidden sm:block"></motion.div>
-                </div>
+                <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold mb-12">
+                    Selected Work
+                </motion.h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-8">
                     {projects.map((project) => (
                         <motion.div
                             key={project.id}
                             variants={itemVariants}
-                            className="group glass-panel overflow-hidden border border-white/5 hover:border-white/10 transition-colors duration-300"
+                            className="group border border-border rounded-xl overflow-hidden hover:border-muted/50 transition-colors duration-300"
                         >
-                            {project.image ? (
-                                <div className="relative h-64 overflow-hidden bg-surface">
-                                    <div className={`absolute inset-0 bg-gradient-to-t ${project.color} mix-blend-overlay z-10 opacity-60 group-hover:opacity-10 transition-opacity duration-500`}></div>
-                                    <img
-                                        src={project.image}
-                                        alt={project.title}
-                                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out grayscale group-hover:grayscale-0"
-                                    />
-                                </div>
-                            ) : (
-                                <div className={`h-64 flex items-center justify-center bg-gradient-to-br ${project.color}`}>
-                                    <span className="font-heading font-bold text-2xl text-white/50 tracking-widest uppercase">Research Project</span>
-                                </div>
-                            )}
+                            <div className="grid md:grid-cols-[1fr,1fr]">
+                                {/* Image */}
+                                {project.image ? (
+                                    <div className="h-56 md:h-auto overflow-hidden bg-surface">
+                                        <img
+                                            src={project.image}
+                                            alt={project.title}
+                                            className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
+                                        />
+                                    </div>
+                                ) : (
+                                    <div className="h-56 md:h-auto bg-surface flex items-center justify-center">
+                                        <span className="font-mono text-sm text-muted/50 uppercase tracking-widest">Research</span>
+                                    </div>
+                                )}
 
-                            <div className="p-8">
-                                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
-                                <p className="text-muted mb-6 leading-relaxed line-clamp-3">
-                                    {project.description}
-                                </p>
+                                {/* Content */}
+                                <div className="p-8 flex flex-col justify-center">
+                                    <h3 className="text-xl font-bold text-text mb-3 group-hover:text-primary transition-colors duration-200">
+                                        {project.title}
+                                    </h3>
 
-                                <div className="flex flex-wrap gap-2 mb-8">
-                                    {project.tags.map(tag => (
-                                        <span key={tag} className="text-xs font-medium px-2.5 py-1 rounded bg-white/5 text-muted border border-white/5">
-                                            {tag}
-                                        </span>
-                                    ))}
+                                    <p className="text-sm text-muted mb-6 leading-relaxed">
+                                        {project.description}
+                                    </p>
+
+                                    <div className="flex flex-wrap gap-2 mb-6">
+                                        {project.tags.map(tag => (
+                                            <span key={tag} className="text-xs font-mono text-muted px-2 py-1 border border-border rounded">
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    {project.github !== '#' && (
+                                        <a
+                                            href={project.github}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-primary transition-colors duration-200 group/link w-fit"
+                                        >
+                                            <Github size={14} />
+                                            Source
+                                            <ArrowUpRight size={12} className="opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                                        </a>
+                                    )}
                                 </div>
-
-                                <a
-                                    href={project.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center text-sm font-semibold text-white/80 hover:text-white transition-colors group/link"
-                                >
-                                    <Github className="w-4 h-4 mr-2" />
-                                    View Source
-                                    <ExternalLink className="w-3 h-3 ml-1 opacity-0 -translate-y-1 translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-y-0 group-hover/link:translate-x-0 transition-all" />
-                                </a>
                             </div>
                         </motion.div>
                     ))}

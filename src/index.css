@@ -1,57 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @layer base {
   body {
-    @apply bg-background text-text font-sans antialiased overflow-x-hidden selection:bg-primary/30;
+    @apply bg-background text-text font-sans antialiased overflow-x-hidden;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading tracking-tight;
   }
-  
+
   p {
     @apply leading-relaxed;
+  }
+
+  ::selection {
+    @apply bg-primary/20 text-white;
   }
 }
 
 @layer components {
   .section-container {
-    @apply max-w-6xl mx-auto px-6 py-24 md:py-32 w-full relative z-10;
+    @apply max-w-5xl mx-auto px-6 py-20 md:py-28 w-full relative z-10;
   }
-  
-  .glass-panel {
-    @apply bg-surface/50 backdrop-blur-md border border-white/5 rounded-2xl;
+
+  .card {
+    @apply bg-surface border border-border rounded-xl;
   }
-  
+
   .primary-button {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-xl font-medium text-white 
-           bg-gradient-to-r from-primary to-secondary transition-all duration-300 
-           hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:-translate-y-1;
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium text-background bg-primary transition-all duration-200 hover:bg-primary/90 hover:-translate-y-0.5;
   }
 
   .secondary-button {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-xl font-medium text-white 
-           bg-white/5 border border-white/10 transition-all duration-300
-           hover:bg-white/10 hover:-translate-y-1;
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium text-text border border-border transition-all duration-200 hover:border-muted hover:-translate-y-0.5;
   }
 
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400;
+  .text-accent {
+    color: #e8a838;
   }
 }
 
-/* Custom Scrollbar for Dark Mode */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   @apply bg-background;
 }
+
 ::-webkit-scrollbar-thumb {
-  @apply bg-surfaceHover rounded-full;
+  @apply bg-border rounded-full;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-white/20;
+  @apply bg-muted;
 }

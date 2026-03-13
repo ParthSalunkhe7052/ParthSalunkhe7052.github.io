@@ -1,47 +1,60 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import ContactForm from './ContactForm';
+import { Github, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
 
 const Footer = () => {
     return (
-        <footer id="contact" className="relative py-12 mt-20 border-t border-white/5 bg-surface/50">
-            <div className="section-container !py-12 text-center relative z-10">
+        <footer id="contact" className="relative pt-20 pb-12 border-t border-border">
+            <div className="section-container !py-0">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="max-w-xl mx-auto"
+                    transition={{ duration: 0.5 }}
+                    className="max-w-xl"
                 >
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/10 text-primary text-xs font-semibold tracking-widest uppercase mb-6">
-                        <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                        </span>
-                        Available for new opportunities
-                    </div>
-
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6">Let's build something <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">extraordinary</span></h2>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                        Get in Touch
+                    </h2>
 
                     <p className="text-muted mb-8 leading-relaxed">
-                        Whether you have a question, a project idea, or just want to connect—my inbox is always open. Let's make it happen.
+                        I'm always open to interesting conversations and opportunities. If you have a project in mind or just want to say hello, drop me a line.
                     </p>
 
-                    <ContactForm />
+                    <a
+                        href="mailto:contact@parth7.me"
+                        className="inline-flex items-center gap-2 text-lg text-primary hover:underline underline-offset-4 transition-colors duration-200 group"
+                    >
+                        contact@parth7.me
+                        <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+                    </a>
                 </motion.div>
 
-                <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted">
-                    <p>© {new Date().getFullYear()} Parth Salunkhe. All rights reserved.</p>
-                    <div className="flex gap-4">
-                        <a href="https://github.com/ParthSalunkhe7052" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>
-                        <a href="https://linkedin.com/in/parth-salunkhe-029a491a4" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
-                        <a href="https://codevault.parth7.me" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">CodeVault</a>
+                <div className="mt-20 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <p className="text-sm text-muted">
+                        © {new Date().getFullYear()} Parth Salunkhe
+                    </p>
+
+                    <div className="flex items-center gap-5">
+                        {[
+                            { icon: Github, href: 'https://github.com/ParthSalunkhe7052', label: 'GitHub' },
+                            { icon: Linkedin, href: 'https://linkedin.com/in/parth-salunkhe-029a491a4', label: 'LinkedIn' },
+                            { icon: Mail, href: 'mailto:contact@parth7.me', label: 'Email' },
+                        ].map((social) => (
+                            <a
+                                key={social.label}
+                                href={social.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={social.label}
+                                className="text-muted hover:text-text transition-colors duration-200"
+                            >
+                                <social.icon size={16} strokeWidth={1.5} />
+                            </a>
+                        ))}
                     </div>
                 </div>
             </div>
-
-            {/* Decorative gradient */}
-            <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-30"></div>
         </footer>
     );
 };

@@ -5,14 +5,26 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [hidden, setHidden] = useState(false);
+    const [lastScrollY, setLastScrollY] = useState(0);
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                setHidden(true);
+            } else {
+                setHidden(false);
+            }
+            
+            setScrolled(currentScrollY > 50);
+            setLastScrollY(currentScrollY);
         };
-        window.addEventListener('scroll', handleScroll);
+        
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [lastScrollY]);
 
     const navLinks = [
         { name: 'Work', href: '#projects' },
@@ -22,23 +34,22 @@ const Navbar = () => {
 
     return (
         <motion.nav
-            initial={{ y: -100 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-4' : 'py-6'
-                }`}
+            variants={{
+                visible: { y: 0 },
+                hidden: { y: "-100%" }
+            }}
+            initial="visible"
+            animate={hidden ? "hidden" : "visible"}
+            transition={{ duration: 0.35, ease: 'easeInOut' }}
+            className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+                scrolled ? 'bg-background/80 backdrop-blur-md border-b border-border py-4' : 'bg-transparent py-6'
+            }`}
         >
-            <div className="max-w-6xl mx-auto px-6">
-                <div className={`flex items-center justify-between rounded-2xl transition-all duration-300 ${scrolled ? 'glass-panel px-6 py-4 shadow-xl shadow-black/20' : 'px-2'
-                    }`}>
-                    {/* Logo */}
-                    <a href="#" className="flex items-center gap-2 group">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-heading font-bold text-xl group-hover:scale-105 transition-transform">
-                            P
-                        </div>
-                        <span className="font-heading font-bold text-lg tracking-tight hidden sm:block">
-                            Parth Salunkhe
-                        </span>
+            <div className="max-w-5xl mx-auto px-6">
+                <div className="flex items-center justify-between">
+                    {/* Logo — just clean text */}
+                    <a href="#" className="font-heading font-bold text-lg tracking-tight hover:text-primary transition-colors duration-200">
+                        Parth Salunkhe
                     </a>
 
                     {/* Desktop Menu */}
@@ -47,28 +58,29 @@ const Navbar = () => {
                             <a
                                 key={link.name}
                                 href={link.href}
-                                className="px-4 py-2 text-sm font-medium text-muted hover:text-white transition-colors rounded-lg hover:bg-white/5"
+                                className="relative px-4 py-2 text-sm text-muted hover:text-text transition-colors duration-200 group"
                             >
                                 {link.name}
+                                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-primary transition-all duration-200 group-hover:w-1/2" />
                             </a>
                         ))}
-                        <a href="/Parth_Resume.docx" download="Parth_Salunkhe_Resume.docx" className="px-4 py-2 text-sm font-medium text-muted hover:text-white transition-colors rounded-lg hover:bg-white/5">
-                            Resume
-                        </a>
                         <a
-                            href="#contact"
-                            className="ml-4 px-5 py-2 text-sm font-medium text-white bg-white/10 border border-white/20 rounded-full hover:bg-white/20 transition-all"
+                            href="/Parth_Resume.docx"
+                            download="Parth_Salunkhe_Resume.docx"
+                            className="relative px-4 py-2 text-sm text-muted hover:text-text transition-colors duration-200 group"
                         >
-                            Let's Talk
+                            Resume
+                            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-primary transition-all duration-200 group-hover:w-1/2" />
                         </a>
                     </div>
 
                     {/* Mobile Toggle */}
                     <button
-                        className="md:hidden p-2 text-muted hover:text-white transition-colors"
+                        className="md:hidden p-2 text-muted hover:text-text transition-colors"
                         onClick={() => setIsOpen(!isOpen)}
+                        aria-label="Toggle menu"
                     >
-                        {isOpen ? <X size={24} /> : <Menu size={24} />}
+                        {isOpen ? <X size={22} /> : <Menu size={22} />}
                     </button>
                 </div>
             </div>
@@ -77,17 +89,17 @@ const Navbar = () => {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
+                        initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
+                        exit={{ opacity: 0, y: -10 }}
                         className="md:hidden absolute top-full left-6 right-6 mt-2"
                     >
-                        <div className="glass-panel p-4 flex flex-col gap-2 shadow-2xl">
+                        <div className="bg-surface border border-border rounded-xl p-3 flex flex-col gap-1">
                             {navLinks.map((link) => (
                                 <a
                                     key={link.name}
                                     href={link.href}
-                                    className="px-4 py-3 text-sm font-medium text-white/80 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
+                                    className="px-4 py-3 text-sm text-muted hover:text-text rounded-lg hover:bg-surfaceHover transition-colors"
                                     onClick={() => setIsOpen(false)}
                                 >
                                     {link.name}
@@ -96,7 +108,7 @@ const Navbar = () => {
                             <a
                                 href="/Parth_Resume.docx"
                                 download="Parth_Salunkhe_Resume.docx"
-                                className="px-4 py-3 text-sm font-medium text-white/80 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
+                                className="px-4 py-3 text-sm text-muted hover:text-text rounded-lg hover:bg-surfaceHover transition-colors"
                             >
                                 Resume
                             </a>
