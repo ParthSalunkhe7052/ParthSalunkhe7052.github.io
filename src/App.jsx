@@ -1,4 +1,5 @@
 import React from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import CodeVaultHighlight from './components/CodeVaultHighlight';
@@ -21,6 +22,7 @@ function App() {
             </main>
             <Footer />
             <BackToTop />
+            <Analytics />
         </div>
     );
 }
