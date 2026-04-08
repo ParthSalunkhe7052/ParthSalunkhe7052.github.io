@@ -16,21 +16,36 @@ const Footer = () => {
                     transition={{ duration: 0.5 }}
                     className="max-w-xl"
                 >
+                    <div className="flex items-center gap-2 mb-6 inline-flex bg-green-500/10 text-green-500 border border-green-500/20 px-3 py-1.5 rounded-full text-xs font-mono">
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        </span>
+                        Open to Opportunities
+                    </div>
                     <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                        Get in Touch
+                        Let's build something together.
                     </h2>
 
                     <p className="text-muted mb-8 leading-relaxed">
-                        I'm always open to interesting conversations and opportunities. If you have a project in mind or just want to say hello, drop me a line.
+                        I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions. Drop me a line!
                     </p>
 
-                    <button
-                        onClick={() => setIsModalOpen(true)}
-                        className="inline-flex items-center gap-2 text-lg text-primary hover:underline underline-offset-4 transition-colors duration-200 group bg-transparent border-none cursor-pointer outline-none"
-                    >
-                        Send a Message
-                        <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
-                    </button>
+                    <div className="flex flex-col sm:flex-row gap-4">
+                        <button
+                            onClick={() => setIsModalOpen(true)}
+                            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-background font-bold rounded-lg hover:bg-opacity-90 transition-colors shadow-lg shadow-primary/20 group"
+                        >
+                            Send a Message
+                            <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+                        </button>
+                        <a
+                            href="mailto:contact@parth7.me"
+                            className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-border text-text font-bold rounded-lg hover:border-primary transition-colors"
+                        >
+                            Direct Email
+                        </a>
+                    </div>
                 </motion.div>
 
                 <div className="mt-20 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">

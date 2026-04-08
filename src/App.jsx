@@ -6,21 +6,23 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
-import BackgroundAnimation from './components/BackgroundAnimation';
+import CmdK from './components/CmdK';
 
 function App() {
     return (
         <div className="relative min-h-screen font-sans text-text">
-            <BackgroundAnimation />
-            <Navbar />
-            <main>
-                <Hero />
-                <CodeVaultHighlight />
-                <About />
-                <Projects />
-            </main>
-            <Footer />
-            <BackToTop />
+            <div className="relative z-10">
+                <CmdK />
+                <Navbar />
+                <main>
+                    <Hero />
+                    <CodeVaultHighlight />
+                    <About />
+                    <Projects />
+                </main>
+                <Footer />
+                <BackToTop />
+            </div>
         </div>
     );
 }

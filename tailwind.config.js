@@ -7,19 +7,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#0c0c0c',
-        surface: '#161616',
-        surfaceHover: '#1e1e1e',
-        primary: '#e8a838',
-        secondary: '#d97706',
+        background: '#000000',
+        surface: '#0a0a0a',
+        surfaceHover: '#141414',
+        primary: '#00ffcc',
+        secondary: '#00b38f',
         text: '#ededed',
-        muted: '#737373',
-        border: '#262626'
+        muted: '#a3a3a3',
+        border: '#1f1f1f'
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        heading: ['Space Grotesk', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: ['Geist', 'Inter', 'sans-serif'],
+        heading: ['Geist', 'Space Grotesk', 'sans-serif'],
+        mono: ['Geist Mono', 'JetBrains Mono', 'monospace'],
       },
     },
   },

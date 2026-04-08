@@ -53,9 +53,18 @@ const CodeVaultHighlight = () => {
                     {/* Header */}
                     <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
                         <div>
-                            <motion.p variants={itemVariants} className="text-sm font-mono text-muted uppercase tracking-wide mb-3">
-                                Featured Project
-                            </motion.p>
+                            <div className="flex items-center gap-3 mb-3">
+                                <motion.p variants={itemVariants} className="text-sm font-mono text-muted uppercase tracking-wide">
+                                    00 // MVP
+                                </motion.p>
+                                <motion.div variants={itemVariants} className="flex items-center gap-2 bg-green-500/10 text-green-500 border border-green-500/20 px-2.5 py-1 rounded-full text-xs font-mono">
+                                    <span className="relative flex h-2 w-2">
+                                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                      <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                    </span>
+                                    Currently Building
+                                </motion.div>
+                            </div>
                             <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold">
                                 CodeVault<span className="text-primary"> LaaS</span>
                             </motion.h2>
