@@ -127,6 +127,8 @@ const About = () => {
                                     className="flex-1 bg-transparent outline-none text-white placeholder-[#444]"
                                     autoComplete="off"
                                     spellCheck="false"
+                                    aria-label="Terminal command input"
+                                    placeholder="Type a command..."
                                 />
                             </form>
                         </div>

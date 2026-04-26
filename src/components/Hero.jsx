@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import parthPhoto from '../assets/parth-photo.jpg';
-import { GooeyDemo } from './ui/demo';
+import { useScroll } from '../hooks/use-scroll';
 
 const TITLES = [
     'Shipped enterprise SaaS',
@@ -17,19 +17,13 @@ const Hero = () => {
     const [isDeleting, setIsDeleting] = useState(false);
     const shouldReduceMotion = useReducedMotion();
 
+    const { y } = useScroll();
+
     useEffect(() => {
         const currentTitle = TITLES[titleIndex];
         let timeout;
 
-        // Optionally pause typing if scrolled out of view to save performance
-        const handleScroll = () => {
-            if (window.scrollY > 600) {
-                clearTimeout(timeout);
-            }
-        };
-        window.addEventListener('scroll', handleScroll, { passive: true });
-
-        if (window.scrollY <= 600) {
+        if (y <= 600) {
             if (!isDeleting && displayText === currentTitle) {
                 timeout = setTimeout(() => setIsDeleting(true), 2000);
             } else if (isDeleting && displayText === '') {
@@ -48,9 +42,8 @@ const Hero = () => {
 
         return () => {
             clearTimeout(timeout);
-            window.removeEventListener('scroll', handleScroll);
         };
-    }, [displayText, isDeleting, titleIndex]);
+    }, [displayText, isDeleting, titleIndex, y]);
 
     const handleEmailClick = (e) => {
         e.preventDefault();
@@ -93,10 +86,7 @@ const Hero = () => {
     };
 
     return (
-        <section id="hero" className="relative min-h-screen flex items-center w-full bg-black overflow-hidden">
-            <div className="absolute inset-0 z-0">
-                <GooeyDemo />
-            </div>
+        <section id="hero" className="relative min-h-[100dvh] flex items-center w-full overflow-hidden">
             <div className="section-container">
                 <div className="grid lg:grid-cols-[1fr,auto] gap-16 items-center">
                     {/* Text Content */}
@@ -106,7 +96,7 @@ const Hero = () => {
                         animate="visible"
                         className="order-2 lg:order-1"
                     >
-                        <motion.p variants={itemVariants} className="text-muted text-sm font-mono tracking-wide uppercase mb-6">
+                        <motion.p variants={itemVariants} className="text-muted text-sm font-mono tracking-wide uppercase mb-6" aria-live="polite">
                             {displayText}
                             <span className="inline-block w-[2px] h-4 bg-primary ml-1 animate-pulse" />
                         </motion.p>
@@ -162,8 +152,10 @@ const Hero = () => {
                             >
                                 <img
                                     src={parthPhoto}
+                                    width={288}
+                                    height={288}
                                     alt="Parth Salunkhe"
-                                    className="w-full h-full object-cover object-[center_80%] scale-[1.35] origin-center"
+                                    className="w-full h-full object-cover object-bottom origin-center"
                                 />
                             </motion.div>
                             {/* Subtle ring */}

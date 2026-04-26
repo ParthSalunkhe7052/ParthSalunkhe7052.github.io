@@ -15,15 +15,38 @@ const CmdK = () => {
             }
             if (e.key === 'Escape') setIsOpen(false);
         };
+        const handleOpenEvent = () => setIsOpen(true);
+        
         window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
+        document.addEventListener('open-cmdk', handleOpenEvent);
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+            document.removeEventListener('open-cmdk', handleOpenEvent);
+        }
     }, []);
 
+    const copyToClipboard = async (text) => {
+        try {
+            await navigator.clipboard.writeText(text);
+            return true;
+        } catch {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.left = '-9999px';
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            return true;
+        }
+    };
+
     const actions = [
-        { id: 'resume', label: 'Download Resume', icon: FileText, onSelect: () => { window.open('/Parth_Resume.docx'); setIsOpen(false); } },
+        { id: 'resume', label: 'Download Resume', icon: FileText, onSelect: () => { window.open('/Parth_Resume.pdf', '_blank'); setIsOpen(false); } },
         { id: 'github', label: 'Go to GitHub', icon: Github, onSelect: () => { window.open('https://github.com/ParthSalunkhe7052'); setIsOpen(false); } },
         { id: 'linkedin', label: 'Go to LinkedIn', icon: Linkedin, onSelect: () => { window.open('https://linkedin.com/in/parth-salunkhe-029a491a4'); setIsOpen(false); } },
-        { id: 'email', label: 'Copy Email Address', icon: Mail, onSelect: () => { navigator.clipboard.writeText('contact@parth7.me'); setIsOpen(false); alert('Email copied!'); } },
+        { id: 'email', label: 'Copy Email Address', icon: Mail, onSelect: () => { copyToClipboard('contact@parth7.me').then(() => { setIsOpen(false); alert('Email copied!'); }); } },
         { id: 'contact', label: 'Contact Me', icon: Terminal, onSelect: () => { document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}); setIsOpen(false); } },
     ];
 

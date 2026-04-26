@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Github, ArrowUpRight } from 'lucide-react';
 import asuraImg from '../assets/asura.png';
 import ddosImg from '../assets/ddos.png';
 import clashImg from '../assets/clash.png';
 import adawwrablyImg from '../assets/adawwrably.png';
+import codevaultCardImg from '../assets/codevault-card.png';
+import ugvImg from '../assets/ugv.png';
+import navaakImg from '../assets/navaak.png';
+import gitasaarthiMainImg from '../assets/gitasaarthi-main.png';
+import UGVModal from './UGVModal';
+import GitaSaarthiModal from './GitaSaarthiModal';
+import RetainrModal from './RetainrModal';
 
 const Projects = () => {
     const shouldReduceMotion = useReducedMotion();
+    const [isUGVModalOpen, setIsUGVModalOpen] = useState(false);
+    const [isGitaModalOpen, setIsGitaModalOpen] = useState(false);
+    const [isRetainrModalOpen, setIsRetainrModalOpen] = useState(false);
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -28,15 +38,36 @@ const Projects = () => {
 
     const projects = [
         {
-            id: 'codevault',
-            title: 'CodeVault',
-            description: 'Security-first licensing platform that compiles Python and Node.js scripts into native, hardware-locked binaries.',
-            stats: 'LaaS + Compiler + DRM',
-            tags: ['C/C++', 'Python', 'Node.js', 'FastAPI'],
-            link: 'https://codevault.parth7.me',
+            id: 'gitasaarthi',
+            title: 'GitaSaarthi 2.0',
+            description: 'Advanced AI conversational assistant for the Bhagavad Gita using RAG for spiritually grounded, authentic responses.',
+            stats: 'RAG + LLM + Spiritual AI',
+            tags: ['React', 'Gemini', 'Python', 'Vector DB'],
+            link: 'https://gitasaarthi.vercel.app/',
             github: '#',
-            image: null,
-            featured: true, // spans 2 cols
+            image: gitasaarthiMainImg,
+            featured: true,
+        },
+        {
+            id: 'retainr',
+            title: 'Retainr.bot',
+            description: 'Automate retainer burn rate visibility and Frictionless refills directly within Slack and Discord.',
+            stats: 'Headless SaaS',
+            tags: ['Slack API', 'Discord API', 'Node.js', 'Polar.sh'],
+            github: '#',
+            image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1974&auto=format&fit=crop',
+            featured: false,
+        },
+        {
+            id: 'navaak',
+            title: 'Navaak',
+            description: 'A luxury e-commerce platform for a high-end clothing brand. Minimalist aesthetic with a focus on premium user experience and craftsmanship.',
+            stats: 'Luxury E-Commerce',
+            tags: ['React', 'Vite', 'Tailwind'],
+            link: 'https://navaak.vercel.app/',
+            github: '#',
+            image: navaakImg,
+            featured: false,
         },
         {
             id: 'adawwrably',
@@ -44,7 +75,7 @@ const Projects = () => {
             description: 'A vibrant e-commerce platform for an anime merchandise store. Modern, interactive UI tailored for fans.',
             stats: 'Live Project',
             tags: ['E-Commerce', 'React'],
-            link: 'https://adawwrably.vercel.app/',
+            link: 'https://adawwrably-v2.vercel.app/',
             github: '#',
             image: adawwrablyImg,
         },
@@ -82,7 +113,7 @@ const Projects = () => {
             stats: 'Best Presentation at ICMTC',
             tags: ['ROS', 'Lidar'],
             github: '#',
-            image: null,
+            image: ugvImg,
         }
     ];
 
@@ -106,15 +137,22 @@ const Projects = () => {
                             key={project.id}
                             variants={itemVariants}
                             whileHover={{ scale: shouldReduceMotion ? 1 : 1.02 }}
+                            onClick={() => {
+                                if (project.id === 'ugv') setIsUGVModalOpen(true);
+                                if (project.id === 'gitasaarthi') setIsGitaModalOpen(true);
+                                if (project.id === 'retainr') setIsRetainrModalOpen(true);
+                            }}
                             className={`group relative border border-border rounded-2xl overflow-hidden hover:border-primary/50 transition-colors duration-300 bg-surface flex flex-col ${
                                 project.featured ? 'md:col-span-2 lg:col-span-2' : 'col-span-1'
-                            }`}
+                            } ${['ugv', 'gitasaarthi', 'retainr'].includes(project.id) ? 'cursor-pointer' : ''}`}
                         >
                             {/* Image Background for Bento */}
                             {project.image ? (
                                 <div className={`w-full overflow-hidden bg-surface ${project.featured ? 'h-64' : 'h-48'}`}>
                                     <img
                                         src={project.image}
+                                        width={project.featured ? 800 : 400}
+                                        height={project.featured ? 400 : 300}
                                         alt={project.title}
                                         className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 ease-out"
                                         loading="lazy"
@@ -185,6 +223,9 @@ const Projects = () => {
                     ))}
                 </div>
             </motion.div>
+            <UGVModal isOpen={isUGVModalOpen} onClose={() => setIsUGVModalOpen(false)} />
+            <GitaSaarthiModal isOpen={isGitaModalOpen} onClose={() => setIsGitaModalOpen(false)} />
+            <RetainrModal isOpen={isRetainrModalOpen} onClose={() => setIsRetainrModalOpen(false)} />
         </section>
     );
 };

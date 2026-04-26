@@ -100,9 +100,15 @@ const ContactModal = ({ isOpen, onClose }) => {
                                 type="submit"
                                 disabled={status === 'loading' || status === 'success'}
                                 className="relative flex items-center justify-center w-full bg-primary text-black font-bold py-3 rounded-lg hover:bg-primary/90 transition-all duration-200 mt-2 disabled:opacity-80 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                                aria-live="polite"
                             >
                                 {status === 'idle' && <span>Send Message</span>}
-                                {status === 'loading' && <Loader2 size={20} className="animate-spin text-black" />}
+                                {status === 'loading' && (
+                                    <>
+                                        <Loader2 size={20} className="animate-spin text-black" />
+                                        <span className="sr-only">Sending...</span>
+                                    </>
+                                )}
                                 {status === 'success' && (
                                     <span className="flex items-center gap-2">
                                         <CheckCircle2 size={20} className="text-black" /> Sent!

@@ -85,6 +85,8 @@ const CodeVaultHighlight = () => {
                     <motion.div variants={itemVariants} className="rounded-xl overflow-hidden border border-border">
                         <img
                             src={codevaultImg}
+                            width={1200}
+                            height={675}
                             alt="CodeVault landing page — Ship Protected"
                             className="w-full h-auto"
                         />
