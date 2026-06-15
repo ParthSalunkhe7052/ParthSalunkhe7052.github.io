@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Mic, Zap, Github, Headphones, Languages, FileText, ArrowUpRight } from 'lucide-react';
-import whisperxImg from '../assets/whisperx.png';
+import whisperxImg from '../assets/whisperx.webp';
+import { useModal } from '../hooks/use-modal';
 
 const WhisperXModal = ({ isOpen, onClose }) => {
+    const modalRef = useRef(null);
+    useModal(isOpen, onClose, modalRef);
+
     return (
         <AnimatePresence>
             {isOpen && (
@@ -19,6 +23,7 @@ const WhisperXModal = ({ isOpen, onClose }) => {
 
                     {/* Modal */}
                     <motion.div
+                        ref={modalRef}
                         initial={{ opacity: 0, scale: 0.9, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.9, y: 20 }}

@@ -65,7 +65,7 @@ const Footer = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label={social.label}
-                                className="text-muted hover:text-text transition-colors duration-200"
+                                className="text-muted hover:text-text transition-colors duration-200 p-3.5 -m-3.5 inline-block"
                             >
                                 <social.icon size={16} strokeWidth={1.5} />
                             </a>

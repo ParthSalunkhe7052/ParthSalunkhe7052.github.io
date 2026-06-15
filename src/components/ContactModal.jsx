@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { X, CheckCircle2, Loader2 } from 'lucide-react';
+import { useModal } from '../hooks/use-modal';
 
 const ContactModal = ({ isOpen, onClose }) => {
     const [status, setStatus] = useState('idle'); // idle, loading, success, error
     const shouldReduceMotion = useReducedMotion();
+    const modalRef = useRef(null);
+    useModal(isOpen, onClose, modalRef);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -49,6 +52,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                     />
                     
                     <motion.div
+                        ref={modalRef}
                         initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.95, y: shouldReduceMotion ? 0 : 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.95, y: shouldReduceMotion ? 0 : 20 }}

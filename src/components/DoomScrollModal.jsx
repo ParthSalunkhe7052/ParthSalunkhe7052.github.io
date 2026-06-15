@@ -1,18 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, MousePointer2, Ruler, Calendar, TrendingUp } from 'lucide-react';
-import doomscrollImg from '../assets/doomscroll.png';
+import doomscrollImg from '../assets/doomscroll.webp';
+import { useModal } from '../hooks/use-modal';
 
 const DoomScrollModal = ({ isOpen, onClose }) => {
-    // Prevent scrolling when modal is open
-    useEffect(() => {
-        if (isOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'unset';
-        }
-        return () => { document.body.style.overflow = 'unset'; };
-    }, [isOpen]);
+    const modalRef = useRef(null);
+    useModal(isOpen, onClose, modalRef);
 
     return (
         <AnimatePresence>
@@ -29,6 +23,7 @@ const DoomScrollModal = ({ isOpen, onClose }) => {
 
                     {/* Modal Content */}
                     <motion.div
+                        ref={modalRef}
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}

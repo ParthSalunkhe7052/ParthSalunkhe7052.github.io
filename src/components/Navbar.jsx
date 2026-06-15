@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Command, Search } from 'lucide-react';
+import { BriefcaseBusiness, Command, FileText, Mail, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { useScroll } from '../hooks/use-scroll';
 
@@ -10,10 +10,12 @@ const Navbar = () => {
 
     const scrolled = y > 50;
     const hidden = y > lastY && y > 100;
+    const showMiniCta = y > 650;
 
     const navLinks = [
-        { name: 'Fun', href: '/fun', isSpecial: true },
         { name: 'Work', href: '/#projects' },
+        { name: 'Skills', href: '/#skills' },
+        { name: 'Experiments', href: '/#experiments', isSpecial: true },
         { name: 'About', href: '/#about' },
         { name: 'Contact', href: '/#contact' },
     ];
@@ -33,7 +35,7 @@ const Navbar = () => {
                     scrolled ? 'bg-background/80 backdrop-blur-md border-b border-border py-4' : 'bg-transparent py-6'
                 }`}
             >
-                <div className="max-w-5xl mx-auto px-6">
+                <div className="max-w-5xl mx-auto px-4 sm:px-6">
                     <div className="flex items-center justify-between">
                         {/* Logo — clean text */}
                         <a href="/" className="font-heading font-bold text-lg tracking-tight hover:text-primary transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none rounded">
@@ -72,14 +74,7 @@ const Navbar = () => {
                         </div>
 
                         {/* Mobile Toggle */}
-                        <div className="md:hidden flex items-center gap-3">
-                            <button
-                                onClick={() => document.dispatchEvent(new CustomEvent('open-cmdk'))}
-                                className="flex items-center justify-center w-8 h-8 bg-surface border border-border rounded-md text-muted hover:text-text transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
-                                aria-label="Search"
-                            >
-                                <Search size={16} />
-                            </button>
+                        <div className="md:hidden flex items-center gap-2">
                             <button
                                 className="p-1.5 text-muted hover:text-text transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none rounded-md"
                                 onClick={() => setIsOpen(!isOpen)}
@@ -126,6 +121,29 @@ const Navbar = () => {
                     )}
                 </AnimatePresence>
             </motion.nav>
+            <AnimatePresence>
+                {showMiniCta && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 12 }}
+                        className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 hidden md:flex items-center gap-1 rounded-full border border-border bg-background/85 backdrop-blur-md px-2 py-2 shadow-2xl"
+                    >
+                        <a href="/#projects" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs text-muted hover:text-primary hover:bg-white/5 transition-colors">
+                            <BriefcaseBusiness size={14} />
+                            Projects
+                        </a>
+                        <a href="/Parth_Resume.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs text-muted hover:text-primary hover:bg-white/5 transition-colors">
+                            <FileText size={14} />
+                            Resume
+                        </a>
+                        <a href="mailto:contact@parth7.me" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs text-muted hover:text-primary hover:bg-white/5 transition-colors">
+                            <Mail size={14} />
+                            Email
+                        </a>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </>
     );
 };

@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Wind, Box, MousePointer2, Layers, Cpu, Fan } from 'lucide-react';
-import aerovortexImg from '../assets/aerovortex.png';
+import aerovortexImg from '../assets/aerovortex.webp';
+import { useModal } from '../hooks/use-modal';
 
 const AeroVortexModal = ({ isOpen, onClose }) => {
+    const modalRef = useRef(null);
+    useModal(isOpen, onClose, modalRef);
+
     return (
         <AnimatePresence>
             {isOpen && (
@@ -19,6 +23,7 @@ const AeroVortexModal = ({ isOpen, onClose }) => {
 
                     {/* Modal */}
                     <motion.div
+                        ref={modalRef}
                         initial={{ opacity: 0, scale: 0.9, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.9, y: 20 }}

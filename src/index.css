@@ -35,7 +35,8 @@
   }
 
   *:focus-visible {
-    @apply outline-none;
+    outline: 2px solid var(--primary, #00ffcc);
+    outline-offset: 2px;
   }
 
   h1,
@@ -58,7 +59,7 @@
 
 @layer components {
   .section-container {
-    @apply max-w-5xl mx-auto px-6 py-20 md:py-28 w-full relative z-10;
+    @apply max-w-5xl mx-auto px-4 sm:px-6 py-20 md:py-28 w-full relative z-10;
   }
 
   .card {

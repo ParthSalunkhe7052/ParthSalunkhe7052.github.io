@@ -1,17 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Slack, Zap, AlertTriangle, RefreshCw, Layout, CreditCard, MessageSquare } from 'lucide-react';
+import { useModal } from '../hooks/use-modal';
 
 const RetainrModal = ({ isOpen, onClose }) => {
-    // Prevent scrolling when modal is open
-    useEffect(() => {
-        if (isOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'unset';
-        }
-        return () => { document.body.style.overflow = 'unset'; };
-    }, [isOpen]);
+    const modalRef = useRef(null);
+    useModal(isOpen, onClose, modalRef);
 
     return (
         <AnimatePresence>
@@ -29,6 +23,7 @@ const RetainrModal = ({ isOpen, onClose }) => {
                     {/* Modal Wrapper */}
                     <div className="fixed inset-0 flex items-center justify-center z-[101] p-4 pointer-events-none">
                         <motion.div
+                            ref={modalRef}
                             initial={{ opacity: 0, scale: 0.9, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.9, y: 20 }}

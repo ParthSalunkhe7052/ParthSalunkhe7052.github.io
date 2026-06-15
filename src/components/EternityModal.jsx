@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Code2, Server, Layout, Activity, Terminal, Files, Zap } from 'lucide-react';
-import eternityImg from '../assets/eternity.png';
+import eternityImg from '../assets/eternity.webp';
+import { useModal } from '../hooks/use-modal';
 
 const EternityModal = ({ isOpen, onClose }) => {
+    const modalRef = useRef(null);
+    useModal(isOpen, onClose, modalRef);
+
     return (
         <AnimatePresence>
             {isOpen && (
@@ -19,6 +23,7 @@ const EternityModal = ({ isOpen, onClose }) => {
 
                     {/* Modal */}
                     <motion.div
+                        ref={modalRef}
                         initial={{ opacity: 0, scale: 0.9, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.9, y: 20 }}

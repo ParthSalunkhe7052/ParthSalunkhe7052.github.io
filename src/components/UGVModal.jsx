@@ -1,18 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Award, MapPin, Users, Trophy } from 'lucide-react';
-import ugvRealImg from '../assets/ugv-real.jpg';
+import ugvRealImg from '../assets/ugv-real.webp';
+import { useModal } from '../hooks/use-modal';
 
 const UGVModal = ({ isOpen, onClose }) => {
-    // Prevent scrolling when modal is open
-    useEffect(() => {
-        if (isOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'unset';
-        }
-        return () => { document.body.style.overflow = 'unset'; };
-    }, [isOpen]);
+    const modalRef = useRef(null);
+    useModal(isOpen, onClose, modalRef);
 
     return (
         <AnimatePresence>
@@ -30,6 +24,7 @@ const UGVModal = ({ isOpen, onClose }) => {
                     {/* Modal Wrapper */}
                     <div className="fixed inset-0 flex items-center justify-center z-[101] p-4 pointer-events-none">
                         <motion.div
+                            ref={modalRef}
                             initial={{ opacity: 0, scale: 0.9, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -52,7 +47,7 @@ const UGVModal = ({ isOpen, onClose }) => {
                                 <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-20">
                                     <div className="flex items-center gap-2 mb-3">
                                         <span className="bg-primary text-background px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">
-                                            The Real Deal
+                                            Hardware Engineering
                                         </span>
                                     </div>
                                     <h2 className="text-3xl sm:text-4xl font-bold text-text tracking-tight drop-shadow-sm">UGV-DTU: IND AGNI</h2>
@@ -65,11 +60,11 @@ const UGVModal = ({ isOpen, onClose }) => {
                                     <div className="flex items-center gap-2 text-primary">
                                         <Trophy size={20} className="shrink-0" />
                                         <p className="text-lg font-semibold tracking-tight">
-                                            Pranked! This is what we actually built.
+                                            IND AGNI: Our Competition-Grade UGV
                                         </p>
                                     </div>
                                     <p className="text-muted leading-relaxed text-sm sm:text-base">
-                                        While the portfolio image is a cool render, this is <strong>IND AGNI</strong> — our competition-grade Unmanned Ground Vehicle. Our team, <strong>UGV-DTU</strong>, represented India on the global stage in Cairo, Egypt.
+                                        This is IND AGNI — our competition-grade Unmanned Ground Vehicle designed and engineered for international challenges. Our team, UGV-DTU, represented India on the global stage in Cairo, Egypt.
                                     </p>
                                 </div>
 

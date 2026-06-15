@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { Search, FileText, Github, Linkedin, Mail, X, Terminal } from 'lucide-react';
+import { Search, FileText, Github, Linkedin, Mail, X, Terminal, BriefcaseBusiness, Shield, Wrench } from 'lucide-react';
 
 const CmdK = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -43,6 +43,9 @@ const CmdK = () => {
     };
 
     const actions = [
+        { id: 'projects', label: 'View Live Projects', icon: BriefcaseBusiness, onSelect: () => { document.getElementById('projects')?.scrollIntoView({behavior: 'smooth'}); setIsOpen(false); } },
+        { id: 'codevault', label: 'See CodeVault Live', icon: Shield, onSelect: () => { window.open('https://codevault.parth7.me', '_blank'); setIsOpen(false); } },
+        { id: 'skills', label: 'View Skills Matrix', icon: Wrench, onSelect: () => { document.getElementById('skills')?.scrollIntoView({behavior: 'smooth'}); setIsOpen(false); } },
         { id: 'resume', label: 'Download Resume', icon: FileText, onSelect: () => { window.open('/Parth_Resume.pdf', '_blank'); setIsOpen(false); } },
         { id: 'github', label: 'Go to GitHub', icon: Github, onSelect: () => { window.open('https://github.com/ParthSalunkhe7052'); setIsOpen(false); } },
         { id: 'linkedin', label: 'Go to LinkedIn', icon: Linkedin, onSelect: () => { window.open('https://linkedin.com/in/parth-salunkhe-029a491a4'); setIsOpen(false); } },
