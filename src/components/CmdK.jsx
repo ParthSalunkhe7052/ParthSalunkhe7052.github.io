@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { Search, FileText, Github, Linkedin, Mail, X, Terminal, BriefcaseBusiness, Shield, Wrench } from 'lucide-react';
+import { Search, FileText, Github, Linkedin, Mail, X, Terminal, BriefcaseBusiness, Shield, Wrench, Bot } from 'lucide-react';
 
 const CmdK = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -16,49 +16,50 @@ const CmdK = () => {
             if (e.key === 'Escape') setIsOpen(false);
         };
         const handleOpenEvent = () => setIsOpen(true);
-        
+
         window.addEventListener('keydown', handleKeyDown);
         document.addEventListener('open-cmdk', handleOpenEvent);
         return () => {
             window.removeEventListener('keydown', handleKeyDown);
             document.removeEventListener('open-cmdk', handleOpenEvent);
-        }
+        };
     }, []);
 
     const copyToClipboard = async (text) => {
         try {
             await navigator.clipboard.writeText(text);
-            return true;
         } catch {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            textarea.style.position = 'fixed';
-            textarea.style.left = '-9999px';
-            document.body.appendChild(textarea);
-            textarea.select();
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.select();
             document.execCommand('copy');
-            document.body.removeChild(textarea);
-            return true;
+            document.body.removeChild(ta);
         }
     };
 
     const actions = [
-        { id: 'projects', label: 'View Live Projects', icon: BriefcaseBusiness, onSelect: () => { document.getElementById('projects')?.scrollIntoView({behavior: 'smooth'}); setIsOpen(false); } },
+        { id: 'projects', label: 'View Projects', icon: BriefcaseBusiness, onSelect: () => { document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); setIsOpen(false); } },
         { id: 'codevault', label: 'See CodeVault Live', icon: Shield, onSelect: () => { window.open('https://codevault.parth7.me', '_blank'); setIsOpen(false); } },
-        { id: 'skills', label: 'View Skills Matrix', icon: Wrench, onSelect: () => { document.getElementById('skills')?.scrollIntoView({behavior: 'smooth'}); setIsOpen(false); } },
-        { id: 'resume', label: 'Download Resume', icon: FileText, onSelect: () => { window.open('/Parth_Resume.pdf', '_blank'); setIsOpen(false); } },
+        { id: 'lastresort', label: 'LastResort — Pentest Agent', icon: Shield, onSelect: () => { document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); setIsOpen(false); } },
+        { id: 'neurobrain', label: 'NeuroBrain — AI Creative Platform', icon: Bot, onSelect: () => { document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); setIsOpen(false); } },
+        { id: 'soulmen', label: 'SoulMen — Tender Readiness', icon: BriefcaseBusiness, onSelect: () => { document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); setIsOpen(false); } },
+        { id: 'skills', label: 'Skills Matrix', icon: Wrench, onSelect: () => { document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' }); setIsOpen(false); } },
+        { id: 'resume', label: 'Open Resume', icon: FileText, onSelect: () => { window.open('/Parth_Resume.pdf', '_blank'); setIsOpen(false); } },
         { id: 'github', label: 'Go to GitHub', icon: Github, onSelect: () => { window.open('https://github.com/ParthSalunkhe7052'); setIsOpen(false); } },
         { id: 'linkedin', label: 'Go to LinkedIn', icon: Linkedin, onSelect: () => { window.open('https://linkedin.com/in/parth-salunkhe-029a491a4'); setIsOpen(false); } },
-        { id: 'email', label: 'Copy Email Address', icon: Mail, onSelect: () => { copyToClipboard('contact@parth7.me').then(() => { setIsOpen(false); alert('Email copied!'); }); } },
-        { id: 'contact', label: 'Contact Me', icon: Terminal, onSelect: () => { document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}); setIsOpen(false); } },
+        { id: 'email', label: 'Copy Email', icon: Mail, onSelect: () => { copyToClipboard('contact@parth7.me').then(() => setIsOpen(false)); } },
+        { id: 'terminal', label: 'Open Terminal (About)', icon: Terminal, onSelect: () => { document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); setIsOpen(false); } },
     ];
 
-    const filteredActions = actions.filter(action => action.label.toLowerCase().includes(query.toLowerCase()));
+    const filtered = actions.filter(a => a.label.toLowerCase().includes(query.toLowerCase()));
 
     return (
         <AnimatePresence>
             {isOpen && (
-                <div className="fixed inset-0 z-[100] flex items-start justify-center pt-[20vh] px-4">
+                <div className="fixed inset-0 z-[100] flex items-start justify-center pt-[18vh] px-4">
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -67,47 +68,47 @@ const CmdK = () => {
                         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
                     />
                     <motion.div
-                        initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.95, y: shouldReduceMotion ? 0 : -20 }}
+                        initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.96, y: shouldReduceMotion ? 0 : -16 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.95, y: shouldReduceMotion ? 0 : -20 }}
-                        transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-                        className="relative w-full max-w-lg bg-surface border border-border rounded-xl shadow-2xl overflow-hidden flex flex-col"
+                        exit={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.96, y: shouldReduceMotion ? 0 : -16 }}
+                        transition={{ type: 'spring', damping: 22, stiffness: 300 }}
+                        className="relative w-full max-w-md bg-surface border border-border rounded-xl shadow-2xl overflow-hidden flex flex-col"
                     >
-                        <div className="flex items-center px-4 py-4 border-b border-border">
-                            <Search size={20} className="text-muted mr-3" />
+                        <div className="flex items-center px-4 py-3.5 border-b border-border gap-3">
+                            <Search size={16} className="text-muted shrink-0" />
                             <input
                                 autoFocus
                                 type="text"
-                                placeholder="Type a command or search..."
-                                className="w-full bg-transparent text-text placeholder-muted focus:outline-none"
+                                placeholder="Search commands..."
+                                className="w-full bg-transparent text-text placeholder-muted focus:outline-none text-sm font-mono"
                                 value={query}
                                 onChange={(e) => setQuery(e.target.value)}
                             />
-                            <button onClick={() => setIsOpen(false)} className="text-muted hover:text-text p-1 rounded-md focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none">
-                                <X size={18} />
+                            <button onClick={() => setIsOpen(false)} className="text-muted hover:text-text p-1 rounded focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none shrink-0">
+                                <X size={16} />
                             </button>
                         </div>
-                        <div className="p-2 max-h-80 overflow-y-auto">
-                            {filteredActions.length > 0 ? (
-                                <div className="space-y-1">
-                                    {filteredActions.map((action, i) => (
+                        <div className="p-1.5 max-h-72 overflow-y-auto">
+                            {filtered.length > 0 ? (
+                                <div className="space-y-0.5">
+                                    {filtered.map((action) => (
                                         <button
                                             key={action.id}
                                             onClick={action.onSelect}
-                                            className="w-full flex items-center px-3 py-3 text-sm text-muted hover:text-text hover:bg-white/5 rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
+                                            className="w-full flex items-center px-3 py-2.5 text-sm text-muted hover:text-text hover:bg-white/5 rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
                                         >
-                                            <action.icon size={16} className="mr-3" />
+                                            <action.icon size={14} className="mr-3 shrink-0" />
                                             {action.label}
                                         </button>
                                     ))}
                                 </div>
                             ) : (
-                                <p className="text-center text-sm text-muted py-6 font-mono">No commands found.</p>
+                                <p className="text-center text-xs text-muted py-5 font-mono">No commands found.</p>
                             )}
                         </div>
-                        <div className="px-4 py-3 border-t border-border bg-black/20 text-xs text-muted flex items-center justify-between font-mono">
-                            <span>Use TAB to navigate</span>
-                            <span>ESC to close</span>
+                        <div className="px-4 py-2.5 border-t border-border bg-background/30 text-[11px] text-muted flex items-center justify-between font-mono">
+                            <span>↑↓ navigate</span>
+                            <span>ESC close</span>
                         </div>
                     </motion.div>
                 </div>

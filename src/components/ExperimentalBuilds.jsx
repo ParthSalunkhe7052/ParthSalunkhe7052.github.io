@@ -50,6 +50,21 @@ const builds = [
     },
 ];
 
+const moreWork = [
+    {
+        title: 'DDoS Globe Visualizer',
+        desc: 'Real-time 3D network event visualizer — streaming attack traffic rendered in WebSockets + Three.js without overwhelming the browser.',
+        github: 'https://github.com/ParthSalunkhe7052/ddos-globe-visualizer',
+        tags: ['Three.js', 'WebSockets', 'React'],
+    },
+    {
+        title: 'Clash Emote Detector',
+        desc: 'Computer vision interaction experiment mapping hand gestures to live game emote triggers via low-latency camera input.',
+        github: 'https://github.com/ParthSalunkhe7052/Clash-Emote-Detector',
+        tags: ['PyTorch', 'OpenCV', 'Python'],
+    },
+];
+
 const ExperimentalBuilds = () => {
     const shouldReduceMotion = useReducedMotion();
 
@@ -129,6 +144,38 @@ const ExperimentalBuilds = () => {
                         </motion.article>
                     ))}
                 </div>
+
+                {/* Secondary tier — more work */}
+                <motion.div variants={itemVariants} className="mt-16">
+                    <h3 className="text-xs font-mono text-muted uppercase tracking-wider mb-6">06 // More Work</h3>
+                    <div className="space-y-4">
+                        {moreWork.map((item) => (
+                            <div key={item.title} className="flex flex-col sm:flex-row sm:items-center gap-3 py-4 border-t border-border group">
+                                <div className="flex-1 min-w-0">
+                                    <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                                        <span className="text-base font-semibold text-text group-hover:text-primary transition-colors duration-200">{item.title}</span>
+                                        <div className="flex gap-1.5">
+                                            {item.tags.map(t => (
+                                                <span key={t} className="text-[10px] font-mono text-muted border border-border px-1.5 py-0.5 rounded bg-background/30">{t}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <p className="text-xs text-muted leading-relaxed max-w-3xl">{item.desc}</p>
+                                </div>
+                                <div className="shrink-0 pt-1 sm:pt-0">
+                                    <a
+                                        href={item.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-1 text-xs font-mono text-muted hover:text-primary transition-colors duration-200"
+                                    >
+                                        GitHub <ArrowUpRight size={12} />
+                                    </a>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </motion.div>
             </motion.div>
         </section>
     );

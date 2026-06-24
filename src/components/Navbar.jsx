@@ -124,10 +124,11 @@ const Navbar = () => {
             <AnimatePresence>
                 {showMiniCta && (
                     <motion.div
-                        initial={{ opacity: 0, y: 12 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 12 }}
-                        className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 hidden md:flex items-center gap-1 rounded-full border border-border bg-background/85 backdrop-blur-md px-2 py-2 shadow-2xl"
+                        initial={{ opacity: 0, y: 12, x: '-50%' }}
+                        animate={{ opacity: 1, y: 0, x: '-50%' }}
+                        exit={{ opacity: 0, y: 12, x: '-50%' }}
+                        style={{ x: '-50%' }}
+                        className="fixed bottom-5 left-1/2 z-50 hidden md:flex items-center gap-1 rounded-full border border-border bg-background/85 backdrop-blur-md px-2 py-2 shadow-2xl"
                     >
                         <a href="/#projects" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs text-muted hover:text-primary hover:bg-white/5 transition-colors">
                             <BriefcaseBusiness size={14} />

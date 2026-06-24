@@ -22,11 +22,10 @@ function Home() {
         <main>
             <Hero />
             <ProofStrip />
-            <CodeVaultHighlight />
+            <About />
             <Projects />
             <SkillsMatrix />
             <ExperimentalBuilds />
-            <About />
         </main>
     );
 }

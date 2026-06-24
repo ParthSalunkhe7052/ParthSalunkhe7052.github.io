@@ -2,16 +2,19 @@ import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 
 const terminalResponses = {
-    help: 'Commands: help, projects, codevault, skills, github, resume, contact, stack, proof, shiplog, why-hire, founder-mode, ship, sudo hire parth',
-    projects: 'Selected systems: CodeVault, ASURA, GitaSaarthi, Retainr.bot, DDoS Globe Visualizer, Clash Emote Detector, Autonomous Ground Vehicle.',
+    help: 'Commands: help, projects, lastresort, neurobrain, soulmen, codevault, skills, github, resume, contact, stack, proof, shiplog, why-hire, founder-mode, ship, sudo hire parth',
+    projects: 'Core systems: LastResort, NeuroBrain, SoulMen, CodeVault, ASURA, GitaSaarthi, UGV-DTU: IND AGNI.',
+    lastresort: 'Autonomous Penetration-Testing Agent\nStack: Go, Playwright, ConnectRPC, SQLite, LLM\nFunction: planning exploit loop in live browser via AXTree context',
+    neurobrain: 'AI Creative CRO Platform\nStack: FastAPI, PyTorch, React\nFunction: CV visual fixation prediction fused with OCR text mapping',
+    soulmen: 'B2B Tender Compliance SaaS\nStack: FastAPI, React, PostgreSQL\nFunction: LLM document extraction + Jaro-Winkler name-matching rules engine',
     codevault: 'Secure deployment + licensing platform\nStack: React, FastAPI, PostgreSQL, Docker, GCP\nPipeline: upload -> isolated build -> license bind -> signed artifact\nLive: https://codevault.parth7.me',
     skills: 'Security, cloud deployments, React/FastAPI full-stack systems, RAG pipelines, webhooks, build workers, product QA.',
     github: 'GitHub: https://github.com/ParthSalunkhe7052',
     resume: 'Resume: /Parth_Resume.pdf',
     contact: 'Email: contact@parth7.me\nOpen to internships, founder-led product builds, and security-aware full-stack work.',
     stack: 'React, Next.js, FastAPI, Node.js, PostgreSQL, Docker, GCP, Vercel, Semgrep, Bandit, Gemini API.',
-    proof: 'Proof: live deployments, architecture notes, security tooling, CodeVault pipeline, public GitHub projects.',
-    shiplog: 'Recent direction: CodeVault licensing infrastructure, security scan workflows, RAG UI, 3D network visualization, storefront experiments.',
+    proof: 'Proof: live deployments, architecture notes, security scans, automated pentest results, public GitHub projects.',
+    shiplog: 'Recent direction: Go-based autonomous security agents, B2B compliance workflows, multimodal LLM pipelines, and award-winning UGV control.',
     'why-hire': 'High-agency full-stack SaaS builder with cybersecurity depth, shipping deployed systems fast.',
     'founder-mode': 'Idea -> API -> auth -> database -> deployment -> feedback -> iteration.',
     ship: 'Build small, deploy early, tighten from real feedback.',
@@ -92,13 +95,13 @@ const About = () => {
 
                         <motion.div variants={itemVariants} className="space-y-4 text-muted text-base leading-relaxed">
                             <p>
-                                I'm a Computer Engineering student at Delhi Technological University, Class of 2027, focused on building real deployed software instead of portfolio-only demos.
+                                I'm a Computer Engineering student at Delhi Technological University, Class of 2027. I specialize in building high-agency systems, secure cloud workloads, and production-grade SaaS products that solve real business problems.
                             </p>
                             <p>
-                                My strongest work sits across <span className="text-text">full-stack SaaS</span>, <span className="text-text">cloud deployment</span>, <span className="text-text">cybersecurity tooling</span>, and <span className="text-text">AI-assisted product development</span>. I move quickly from idea to usable system: APIs, auth, databases, deployment, monitoring, and UI polish.
+                                My expertise spans <span className="text-text">full-stack engineering</span>, <span className="text-text">autonomous AI agents</span>, and <span className="text-text">cybersecurity tooling</span>. I move rapidly from architecture to deployment, specializing in isolated execution environments, OCR/LLM pipelines, and secure API protocols.
                             </p>
                             <p>
-                                Right now I'm building <a href="https://codevault.parth7.me" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline underline-offset-4 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none rounded">CodeVault</a>, a secure deployment and licensing platform that protects scripts through cloud build isolation, hardware-bound licenses, signed access checks, and controlled artifact delivery.
+                                Instead of focusing on a single project, I build across domains—ranging from autonomous penetration-testing agents in Go, to B2B document-validation platforms, to award-winning robotics systems.
                             </p>
                         </motion.div>
                     </div>
@@ -133,7 +136,7 @@ const About = () => {
                                     autoComplete="off"
                                     spellCheck="false"
                                     aria-label="Terminal command input"
-                                    placeholder="codevault"
+                                    placeholder="help"
                                 />
                             </form>
                         </div>

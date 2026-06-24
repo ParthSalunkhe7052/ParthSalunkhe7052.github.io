@@ -14,19 +14,17 @@ High School Diploma | 2023
 
 TECHNICAL SKILLS
 
-Languages: C++, Python, JavaScript, TypeScript
+Languages: Go, Python, C++, JavaScript, TypeScript
 
-Web & Backend: React 18, Vite, FastAPI, Node.js, REST APIs, WebSockets, SQLAlchemy
+Web & Backend: React 18, Vite, FastAPI, Node.js, Playwright, ConnectRPC, REST APIs, WebSockets, SQLAlchemy
 
-Databases & Infra: Elasticsearch, SQLite, Redis, Proxmox, Linux, Docker
+Databases & Caching: PostgreSQL, SQLite, Redis, Elasticsearch
 
-Cloud Platforms: Vercel, Heroku, Google Cloud Build, DigitalOcean
+DevOps & Infrastructure: Docker, GCP, Linux, Proxmox, GitHub Actions, Vercel, DigitalOcean
 
-AI & Machine Learning: PyTorch, TensorFlow, OpenCV, MediaPipe, Embeddings
+AI & Machine Learning: PyTorch, OpenCV, MediaPipe, RAG, Embeddings, Multimodal LLM Fusion
 
-AI Orchestration: MCP Servers, Agentic Workflows, Open Claw, Claude/Kilo CLI, Multi-Agent Architecture
-
-Cybersecurity: Threat Intelligence APIs (AbuseIPDB, AlienVault OTX, Abuse.ch), DShield
+Cybersecurity & AI Agents: LLM Agent Planning, Threat Intel APIs (AbuseIPDB, AlienVault OTX), Semgrep, Bandit
 
 PROFESSIONAL EXPERIENCE
 Alfazance — Dubai, UAE
@@ -47,52 +45,17 @@ Resolved client-side network and infrastructure issues, contributing to faster s
 
 Supported documentation for server maintenance procedures.
 
-SAAS & SOFTWARE PROJECTS
-CodeVault (codevault.parth7.me) | Python, FastAPI, React, GCP, Nuitka
+SAAS & SYSTEMS PROJECTS
 
-Engineering a full-stack SaaS platform that compiles Python and Node.js applications into secure native C binaries.
+LastResort — Autonomous Web Penetration-Testing Agent | Go, Playwright, ConnectRPC, SQLite | 2026
+* Designed and developed an autonomous penetration-testing daemon in Go that replaces static vulnerability signatures with an LLM planning loop (Gemini/OpenRouter) to dynamically craft exploit payloads.
+* Engineered browser-based exploit verification using Playwright, verifying vulnerabilities through live DOM state changes and script execution alerts rather than error-prone HTTP response string matching.
+* Implemented an SQLite-backed SessionJournal storing action history and AXTree (Accessibility Tree) context, enabling the agent to execute complex multi-step exploits.
 
-Architected a highly scalable backend utilizing FastAPI, SQLAlchemy, and Redis to manage enterprise licensing (offline leases, floating licenses, HWID locking).
-
-Refactoring the React/TypeScript frontend deployed via Vercel to optimize the user dashboard experience.
-
-Autonomous AI Agent Infrastructure | DigitalOcean, Linux, Open Claw, MCP | 2026
-
-Provisioned and configured a DigitalOcean VPS (via GitHub Student Developer Pack) to host autonomous AI agents.
-
-Deployed Model Context Protocol (MCP) servers and orchestrated multi-terminal, CLI-driven agent workflows using detailed markdown configurations.
-
-ShellToPDF & Retainr.bot | SaaS Architecture & Automation | In Development
-
-Designing modular backend architectures for upcoming SaaS tools focused on automated penetration test reporting and bot-driven retention workflows.
-
-Delhi E-Bus Transit Tracker | GPS Integration, Mapping APIs * Developed a real-time tracking application for Delhi's public e-bus network during a university hackathon.
-
-Interfaced with onboard GPS hardware to extract live telemetry data, rendering live bus routes and ETA calculations on an interactive map.
-
-DDoS Globe – Real-Time Cyberattack Visualization | React, WebSockets, Three.js | 2025
-
-Designed and developed a live 3D globe visualizing real-time cyberattacks.
-
-Built data ingestion via WebSockets handling 200+ messages/sec with <300 ms render latency.
-
-Integrated AbuseIPDB, AlienVault OTX, and Abuse.ch APIs for multi-source threat intelligence.
-
-Asura Security Scans – AI-Powered Vulnerability Analysis | Python, OpenRouter API | 2025
-
-Created a multi-engine security scanner integrating Bandit, Safety, and Semgrep.
-
-Added OpenRouter API for AI-generated vulnerability explanations and developed an A–F health scoring system.
-
-Clash Royale Emote Detector | PyTorch, MediaPipe, OpenCV | 2025
-
-Achieved 95%+ detection accuracy using MediaPipe and PyTorch for gesture recognition across 5k+ labeled frames.
-
-Processed video feeds with real-time performance at 15–30 FPS supporting 7 built-in custom emotes.
-
-UGV Tech Team – Autonomous Ground Vehicle | Jetson Nano, ROS | 2024
-
-Built a 6-wheel rover integrating ROS-based navigation, SLAM mapping, and obstacle detection algorithms.
+NeuroBrain — AI CRO & Creative Attention Platform | FastAPI, PyTorch, React, Python | 2025
+* Built a multi-stage creative intelligence platform that predicts consumer visual fixations on marketing images and outputs concrete layout edits instead of raw, uninterpreted heatmaps.
+* Fused PyTorch-based visual attention maps with OCR text layouts, feeding the coordinates and textual elements into a multimodal LLM pipeline to generate actionable design changes.
+* Implemented a secure FastAPI backend supporting batch creative uploads, handling asynchronous processing workers, and reducing evaluation times to under 15 seconds.
 
 CERTIFICATIONS & ACHIEVEMENTS
 
@@ -104,4 +67,4 @@ Top 5 – DTU Hackathon 2024
 
 Top 5 & Best Presentation – ICMTC (UGVC Category, Cairo, Egypt)
 
-GitHub Student Developer Pack Membe
+GitHub Student Developer Pack Member

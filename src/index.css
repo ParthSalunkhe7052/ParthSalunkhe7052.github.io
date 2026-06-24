@@ -95,3 +95,17 @@
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-muted;
 }
+
+/* Responsive horizontal fade-out mask for carousels */
+.carousel-mask {
+  mask-image: linear-gradient(to right, transparent 0%, black 2rem, black calc(100% - 2rem), transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 2rem, black calc(100% - 2rem), transparent 100%);
+}
+
+@media (min-width: 768px) {
+  .carousel-mask {
+    mask-image: linear-gradient(to right, transparent 0%, black 8rem, black calc(100% - 8rem), transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8rem, black calc(100% - 8rem), transparent 100%);
+  }
+}
+

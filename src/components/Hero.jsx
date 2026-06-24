@@ -5,9 +5,9 @@ import parthPhoto from '../assets/parth-photo.webp';
 import { useScroll } from '../hooks/use-scroll';
 
 const TITLES = [
-    'Building CodeVault, a cloud-integrated licensing and binary protection platform.',
+    'Shipping production-focused SaaS, security tooling, and AI pipelines.',
     'I design, build, deploy, and maintain real products across SaaS, AI, and security.',
-    'Focused on auth, APIs, cloud deployments, security checks, and clean UX.',
+    'Focused on secure APIs, isolated cloud runtimes, and low-latency LLM orchestration.',
     'Computer Engineering student at DTU, shipping full-stack systems beyond class projects.',
 ];
 
@@ -97,11 +97,7 @@ const Hero = () => {
                         </motion.h2>
 
                         <motion.p variants={itemVariants} className="text-base md:text-lg text-[#d0d0d0] mb-8 max-w-2xl leading-relaxed break-words">
-                            I build production-focused web apps, cloud workflows, and security-aware tools. Currently building{' '}
-                            <a href="https://codevault.parth7.me" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline underline-offset-4 font-medium transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none">
-                                CodeVault
-                            </a>
-                            , a cloud-integrated licensing and binary protection platform for Python and Node.js projects.
+                            I build production-focused web apps, autonomous AI agents, and secure cloud workflows. Rather than portfolio-only demos, I focus on shipping high-agency systems with real business utility, security depth, and AI-driven automation.
                         </motion.p>
 
                         <motion.div variants={itemVariants} className="flex flex-col sm:flex-row sm:items-center gap-3 mb-8 max-w-full">
@@ -122,12 +118,12 @@ const Hero = () => {
                                 Open Resume
                             </a>
                             <a
-                                href="https://codevault.parth7.me"
+                                href="https://github.com/ParthSalunkhe7052"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-5 py-3 rounded-lg border border-primary/30 text-primary font-bold hover:bg-primary/10 transition-colors"
                             >
-                                See CodeVault Live
+                                Explore GitHub
                                 <ArrowUpRight size={17} />
                             </a>
                         </motion.div>

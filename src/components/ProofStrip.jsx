@@ -2,10 +2,10 @@ import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 
 const proofItems = [
-    { value: '7+', label: 'shipped projects' },
-    { value: 'GCP + Vercel', label: 'cloud deployments' },
-    { value: 'Security', label: 'tooling and license flows' },
-    { value: 'CodeVault', label: 'active SaaS build' },
+    { value: '8+', label: 'shipped systems' },
+    { value: '<15s', label: 'AI pipeline latency' },
+    { value: 'Top 5', label: 'global robotics rank' },
+    { value: 'RPC & WebSockets', label: 'low-latency APIs' },
 ];
 
 const scanItems = ['DTU 2027', 'Full-stack', 'Security', 'Cloud', 'Live deployments'];
